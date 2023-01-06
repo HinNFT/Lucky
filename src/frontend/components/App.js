@@ -4,7 +4,7 @@ import { ethers } from 'ethers';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Navigation from './nav'
-import Shop from "./Shop"
+import Mint from "./Mint"
 import Account from "./Account"
 import LogReg from "./modalPopups/LogReg"
 
@@ -56,12 +56,12 @@ function App() {
     <div >
     
 
-    <Navigation Shop = {Shop} Account = {Account} /> 
+    <Navigation Mint = {Mint} Account = {Account} /> 
  
 
 <Routes>
       <Route path = "/" element = { 
-            <Shop Shop = {Shop} lucky = {lucky}/> 
+            <Mint Mint = {Mint} lucky = {lucky}/> 
           } />
       <Route path = "Account" element = { 
             <Account  lucky = {lucky} loginData = {loginData}/> 

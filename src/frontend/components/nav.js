@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button, Navbar, Nav, Container } from 'react-bootstrap'
 
 
-const Navigation = ({Shop, Account}) => {
+const Navigation = ({Mint, Account}) => {
 
     return (
         <Navbar expand="lg" bg="secondary" variant="dark">
@@ -14,7 +14,7 @@ const Navigation = ({Shop, Account}) => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                    <Nav.Link as={Link} to="/"> Shop </Nav.Link>
+                    <Nav.Link as={Link} to="/"> Mint </Nav.Link>
                     <Nav.Link as={Link} to="/Account"> Account </Nav.Link>    
                     </Nav>
                     <Nav>
