@@ -5,10 +5,12 @@ import Axios from 'axios'
 const Register = ({ web3Handler, addressReg}) => {
   const[emailReg, setEmailReg] = useState('')
   const[passwordReg, setPasswordReg] = useState('')
+  const[ConfirmPasswordReg, setConfirmPasswordReg] = useState('')
   const[refCodeReg, setRefCodeReg] = useState('')
 
-  const register = async () => {
-    await Axios.post("http://localhost:3001/register", {
+  const register = () => {
+    if(passwordReg === ConfirmPasswordReg) {
+      Axios.post("http://localhost:3001/register", {
       email: emailReg,
       password: passwordReg,
       address: addressReg,
@@ -16,6 +18,11 @@ const Register = ({ web3Handler, addressReg}) => {
     }).then((response) => {
         window.alert(response.data.message)
       })
+    } else {
+      window.alert("Passwords don't match!")
+    }
+
+    
     }
   
    return (
@@ -36,9 +43,10 @@ const Register = ({ web3Handler, addressReg}) => {
         <div className="mb-3">
     
           <input
-            type="password"
+            type="text"
             className="form-control"
             placeholder="Enter password"
+            onChange={(e)=> {setPasswordReg(e.target.value)}}
             
           />
         </div>
@@ -46,10 +54,10 @@ const Register = ({ web3Handler, addressReg}) => {
         <div className="mb-3">
     
           <input
-            type="password"
+            type="text"
             className="form-control"
             placeholder="Confirm password"
-            onChange={(e)=> {setPasswordReg(e.target.value)}}
+            onChange={(e)=> {setConfirmPasswordReg(e.target.value)}}
           />
         </div>
         <div className="mb-3">

@@ -58,6 +58,10 @@ app.post('/register', (req,res) => {
                       if(err) {
                           console.log(err)
                         } else {
+                          db.query(
+                            "UPDATE users SET signupreferralcount = signupreferralcount + 1 WHERE referralcode = ?",
+                            [referrer]
+                            )
                           res.send({message: "Registration successful. Please Login."})
                           }
                         })} else {
@@ -122,6 +126,16 @@ app.post('/referral', (req,res) => {
         res.send({message: "fetch wallet fail"})
       }
     })
+})
+
+app.post('/mintref', (req,res) => {
+  const refCode = req.body.referralCode
+  const amount = req.body.mintAmount
+
+  db.query(
+    "UPDATE users SET signupreferralcount = mintreferralcount + ? WHERE referralcode = ?",
+    [amount, refCode]
+    )
 })
 
 

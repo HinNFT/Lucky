@@ -11,10 +11,12 @@ async function main() {
   const LIMEToken = await ethers.getContractFactory('LIMEToken');
   const token = await LIMEToken.deploy(toWei(100000));
   const LuckyNFT = await ethers.getContractFactory('LuckyNFT');
-  const nft = await LuckyNFT.deploy(token.address, addr1.address, addr2.address);
+  const nft = await LuckyNFT.deploy(token.address);
 
   await nft.connect(deployer).setPrice(toWei(10))
   await nft.connect(deployer).setMaxMintAmount(4)
+  await nft.connect(deployer).setAccounts(addr1.address, addr2.address)
+  await nft.connect(deployer).setRoyalty(5)
   
   
   // For each contract, pass the deployed contract and name to this function to save a copy of the contract ABI and address to the front end.

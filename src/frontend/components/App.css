@@ -1,0 +1,198 @@
+.App {
+  text-align: center;
+}
+
+.font-link-League {
+  font-family: 'League Spartan', sans-serif;
+}
+
+.font-link-Montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    position: relative;
+    background-color: black;
+
+}
+
+.navbar-brand {
+  transform: translateX(-50%);
+  font-family: 'League Spartan', sans-serif;
+  letter-spacing: 50px;
+  font-size: 30px !important; 
+  left: 50%;
+  position: absolute;
+}
+
+ .nav-link{
+    color: white !important;
+    font-size: 15px !important;
+  }
+
+  .loginButton {
+    color: #F37021 !important;
+  }
+
+
+.header-text h1 {
+  padding-top: 0%;
+  padding-left: 15%;
+  font-weight: 1000;
+  font-size: 75px;
+  line-height: 90px;
+  letter-spacing: 15px;
+  margin-bottom: 30px;
+  color: black;
+}
+
+.header-text h3 {
+  padding-left: 15%;
+  font-weight: 900;
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  color:black;
+}
+
+.header-text p {
+  padding-top: 20%;
+  padding-left: 15%;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 30px;
+  letter-spacing: 0.25px;
+  margin-bottom: 0px;
+  position: relative;
+}
+
+.bgOrange {
+  background-color: #F37021;
+}
+
+.responsive-lucky {
+  padding-top: 10%;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+
+}
+
+.responsive-lucky1{
+  padding-top: 10%;
+  padding-bottom: 10%;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+
+}
+
+.white-button {
+    display: inline-block;
+    padding: 20px 40px;
+    background-color: white;
+    color: #F37021;
+    border: none;
+    border-radius: 0;
+    font-size: 16px;
+    cursor: pointer;
+    padding-bottom: 20%;
+  
+  }
+
+.mid-text h1 {
+  font-family: 'League Spartan', sans-serif;
+  padding-top: 10%;
+  padding-left: 15%;
+  font-weight: 1000;
+  font-size: 50px;
+  line-height: 70px;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.mid-text strong {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 1000;
+  font-size: 60px;
+  letter-spacing: 1px;
+  color: #F37021;
+}
+
+.mid-text h3 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 900;
+  padding-left: 15%;
+  font-size: 30px;
+  color: black;
+}
+
+.mid-text p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  padding-left: 15%;
+  font-size: 15px;
+  color: black;
+}
+
+.container-lowermid {
+  padding-top: 5%;
+  padding-left: 5%;
+  padding-bottom: 10%
+
+}
+.container-gallery {
+  padding-top: 5%;
+  padding-bottom: 10%
+
+}
+
+.container-lowermid p {
+  line-height: 40px;  
+}
+
+.bgOrange2 {
+  background-color: #F37021;
+}
+
+.bgOrange2 h1 {
+  padding-top: 20%;
+  padding-left: 10%;
+  font-weight: 900;
+  font-size: 70px;
+  line-height: 90px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  color: white;
+
+}
+
+.bgOrange2 p {
+  padding-left: 10%;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 30px;
+  letter-spacing: 0.25px;
+  margin-bottom: 0px;
+  position: relative;
+}
+
+.lower-text{
+  padding-bottom: 10%
+}
+
+.bgBlack {
+  padding-top: 3%;
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+

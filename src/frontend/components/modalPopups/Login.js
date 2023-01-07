@@ -2,7 +2,7 @@ import { useState } from 'react';
 import "./Modal.css";
 import Axios from 'axios'
 
-const Login = ({onClose, settingLoginData}) => {
+const Login = ({closeLogReg, settingLoginData}) => {
 
   const[email, setEmail] = useState('')
   const[password, setPassword] = useState('')
@@ -16,8 +16,9 @@ const Login = ({onClose, settingLoginData}) => {
         window.alert(response.data.message)
       } else {
         settingLoginData(response.data[0])
+        closeLogReg()
         window.alert(`Logged in as '${response.data[0].email}'`)
-        onClose()
+        
            }
     })
   }
@@ -43,7 +44,7 @@ const Login = ({onClose, settingLoginData}) => {
         <div className="mb-3">
       
           <input
-            type="password"
+            type="text"
             className="form-control"
             placeholder="Enter password"
             onChange={(e)=> {setPassword(e.target.value)}}
