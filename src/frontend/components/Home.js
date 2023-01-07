@@ -198,14 +198,14 @@ const Home = () => {
         </div>
         </div>
 
-        <footer>
+        <footer class ="footerBG">
         <div class="container">
             <div class="row">
                 
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-box">
                         <h2>INFO</h2>
-                    <ul>
+                    <ul >
                         <li>BLOG</li>
                         <li>FAQ</li>
                     </ul>
@@ -214,7 +214,7 @@ const Home = () => {
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-box">
                         <h2>PRODUCTS</h2>
-                    <ul>
+                    <ul >
                         <li>LUCKY CASINO</li>
                         <li>LUCKY TRADE</li>
                         <li>LUCKY GAMING</li>
@@ -229,13 +229,7 @@ const Home = () => {
                         <h2>2023 LUCKY <br/> ALL RIGHTS RESERVED </h2>
                         
                         
-                        <h2>Follow us on</h2>
-                        <p class="socials">
-                            <i class="fa fa-facebook"></i>
-                            <i class="fa fa-dribbble"></i>
-                            <i class="fa fa-pinterest"></i>
-                            <i class="fa fa-twitter"></i>
-                        </p>
+                        
                     </div>
                 </div>
             </div>
@@ -251,5 +245,13 @@ const Home = () => {
   )
 }
 export default Home
+
+// <h2>Follow us on</h2>
+//                         <p class="socials">
+//                             <i class="fa fa-facebook"></i>
+//                             <i class="fa fa-dribbble"></i>
+//                             <i class="fa fa-pinterest"></i>
+//                             <i class="fa fa-twitter"></i>
+//                         </p>
 
 

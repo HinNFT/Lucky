@@ -49,6 +49,7 @@ const Account = ({lucky, loginData, openLogin}) => {
 
 
   return (
+
   		<div className="container">
  
 		<h3>Account: {loginData.email}</h3>

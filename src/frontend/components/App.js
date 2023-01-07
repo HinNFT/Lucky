@@ -28,9 +28,9 @@ function App() {
 
 
   const web3Handler = async () => {
-    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-    setAddressReg(accounts[0])
-    setAccount(accounts[0])
+    // const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+    // setAddressReg(accounts[0])
+    // setAccount(accounts[0])
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     loadContracts(signer)
@@ -40,11 +40,8 @@ function App() {
     const Lucky = new ethers.Contract(LuckyAddress.address, LuckyAbi.abi, signer)
     setNft(Lucky)
     const Lime = new ethers.Contract(LIMEAddress.address, LIMETokenAbi.abi, signer)
-    setToken(Lime)
-  
+    setToken(Lime) 
   }
-
-
 
 
   const settingLoginData = (loginData) => {
@@ -67,10 +64,7 @@ function App() {
 
   return (
     <BrowserRouter>
-
-
-
-   
+ 
     <div>    
       <LogReg openModal = {openModal} web3Handler ={web3Handler} addressReg = {addressReg} closeLogReg ={closeLogReg} settingLoginData = {settingLoginData} />
     </div>

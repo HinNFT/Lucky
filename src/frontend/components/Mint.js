@@ -2,6 +2,12 @@ import { useState, useEffect} from 'react'
 import Axios from 'axios'
 import { ethers } from 'ethers'; 
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
+import luckymint from './assets/luckymint.png'
+import m1 from './assets/m1.jpeg'
+import m2 from './assets/m2.jpeg'
+import m3 from './assets/m3.jpeg'
+import m4 from './assets/m4.jpeg'
+
 
 const Mint = ({nft, loginData, token, web3Handler, account}) => {
 
@@ -41,33 +47,35 @@ const Mint = ({nft, loginData, token, web3Handler, account}) => {
 	}
 
 
+
+
   return (
+  	
+  	<div className="bg">
+  		
+
   		<div className="text-center">
-  		<div className="text-center">
-  			<h1> price $5 / 5 usdc </h1>
-  			<h1> maximum 4 mints per tx </h1>
+  		<div>
+  		
+      <img src ={luckymint} width ={150}/>
+      </div>
 
-  		</div>
+      <div className="mint-img">
+      <img src={m1} width ={120}/>
+      <img src={m2} width ={120}/>
+      <img src={m3} width ={120}/>
+      <img src={m4} width ={120}/>
 
-  		<input
-            type="text"
-         
-            placeholder="Referral code"
-            onChange={(e)=> {setRefCode(e.target.value)}}
-          />
+      </div>
 
-          <input
-            type="number"
-            min="1"
-            max="4"
-           
-            placeholder="Mint qty"
-            onChange={(e)=> {setAmount(e.target.value)}}
-          />
+  
 
-		<button onClick = {mint}> mint with wallet</button>
-		<button onClick = {approveToken}> approve usdc</button>
-	
+  		
+          
+<div className ="mintbutton-container">
+		<button className = "button4" onClick = {mint}> M I N T</button>
+		<button className = "button4" onClick = {approveToken}> Approve USDC</button>
+
 		<CrossmintPayButton
     clientId="32027041-87fe-4f33-be68-32358a45c333"
     environment="production"
@@ -76,11 +84,41 @@ const Mint = ({nft, loginData, token, web3Handler, account}) => {
         totalPrice: "1",
         _mintAmount: "1"
         // your custom minting arguments...
-    }}
-/>
+    }}/>
+    
+</div>
+<div className = "mint-input-container">
+          <input
+            type="text"
+            className="mint-input"
+         
+            placeholder="Referral code"
+            onChange={(e)=> {setRefCode(e.target.value)}}
+          />
+          </div>
+          <div>
+          	<h1 className ="qtymint"> Max Quantity 5</h1>
+          </div>
+
+<div className = "mint-input-container">
+          <input
+            type="text"
+            className="mint-input"
+            
+           
+            placeholder="N F T s"
+            onChange={(e)=> {setAmount(e.target.value)}}
+          />
+          </div>
+
+		
+	
+		
 	
 		
 	</div>
+	</div>
+	
       
 
 	   
