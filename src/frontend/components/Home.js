@@ -14,6 +14,35 @@ import fallen from './assets/fallen.png'
 
 
 const Home = () => {
+    const [timerDays, setTimerDays] = useState();
+    let interval;
+
+  const startTimer = () => {
+    const countDownDate = new Date("January 20,2023 ").getTime();
+
+    interval = setInterval(() => {
+      const now = new Date().getTime();
+
+      const distance = countDownDate - now;
+
+      const days = Math.floor(distance / (24 * 60 * 60 * 1000));
+      
+
+      if (distance < 0) {
+        // Stop Timer
+
+        clearInterval(interval.current);
+      } else {
+        // Update Timer
+        setTimerDays(days);
+     
+      }
+    });
+  };
+
+  useEffect(() => {
+    startTimer();
+  });
 
   return (
   	   <div>
@@ -28,7 +57,7 @@ const Home = () => {
                         <h3>Most powerful passive income platform <br/>
                            backed by strongest business.</h3>
 
-                         <button className ="white-button"> R E G I S T E R</button>
+                        
                       
                     </div>
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -61,7 +90,7 @@ const Home = () => {
       <div class="container-lowermid">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                    <div class="features-item">
+                    <div>
                         <div class="features-icon">
                             
                             <img src={clock} width={50} height={50} />
@@ -73,7 +102,7 @@ const Home = () => {
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
                     data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
-                    <div class="features-item">
+                    <div>
                         <div class="features-icon">
                             
                             <img src={reward} width={50} height={50} />
@@ -86,7 +115,7 @@ const Home = () => {
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
                     data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                    <div class="features-item">
+                    <div>
                         <div class="features-icon">
                            
                            <img src={gift} width={50} height={50} />
@@ -181,7 +210,7 @@ const Home = () => {
                 <div class="row">
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12">
                        
-                        <h1>PAYOUT REWARDS <br/> COUNTDOWN <br/> XX DAYS LEFT</h1>
+                        <h1>PAYOUT REWARDS <br/> COUNTDOWN <br/> {timerDays} DAYS LEFT</h1>
                         <p>only available to nft minters before 20/01/2023.</p>
                   </div>
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12">

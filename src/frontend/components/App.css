@@ -19,8 +19,8 @@
 .navbar-brand {
   transform: translateX(-50%);
   font-family: 'League Spartan', sans-serif;
-  letter-spacing: 50px;
-  font-size: 30px !important; 
+  letter-spacing: 3rem;
+  font-size: 2rem; 
   left: 50%;
   position: absolute;
 }
@@ -39,7 +39,7 @@
   padding-top: 0%;
   padding-left: 15%;
   font-weight: 900;
-  font-size: 75px;
+  font-size: 4.6rem;
   line-height: 90px;
   letter-spacing: 15px;
   margin-bottom: 30px;

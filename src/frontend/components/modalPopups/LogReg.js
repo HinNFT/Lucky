@@ -5,7 +5,7 @@ import Register from './Register'
 import "./Modal.css";
 
 
-const LogReg = ({openModal, web3Handler, closeLogReg, settingLoginData}) => {
+const LogReg = ({openModal, closeLogReg, settingLoginData}) => {
    
   const [form, setForm] = useState('Login')
 
@@ -13,7 +13,7 @@ const LogReg = ({openModal, web3Handler, closeLogReg, settingLoginData}) => {
     if(form === 'Login') {
       content = <Login closeLogReg = {closeLogReg} settingLoginData = {settingLoginData}/>
     } else {
-      content = <Register web3Handler = {web3Handler} />
+      content = <Register />
     }
 
 

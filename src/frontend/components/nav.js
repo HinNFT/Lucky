@@ -7,14 +7,17 @@ const Navigation = ({Mint, Account, Home, openLogin , loginData}) => {
     return (
         <Navbar className ="py-4"expand="lg" bg="black" variant="dark" >
 
-         <Navbar.Brand className = "navbar-brand" href="/">
-                LUCKY
-                </Navbar.Brand>
+        
 
             <Container>
-                
+
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
                 <Navbar.Collapse id="responsive-navbar-nav">
+                 <Navbar.Brand className = "navbar-brand" href="/">
+                LUCKY
+                </Navbar.Brand>
+                
                     <Nav className="me-auto">
                     <Nav.Link as={Link} color="white" to="/"> HOME </Nav.Link>
                     <Nav.Link as={Link} to="/Mint"> MINT </Nav.Link>

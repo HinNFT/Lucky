@@ -3,16 +3,16 @@ import Axios from 'axios'
 import { ethers } from 'ethers'; 
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import luckymint from './assets/luckymint.png'
+
 import m1 from './assets/m1.jpeg'
 import m2 from './assets/m2.jpeg'
 import m3 from './assets/m3.jpeg'
 import m4 from './assets/m4.jpeg'
 
 
-const Mint = ({nft, loginData, token, web3Handler, login, openLogin}) => {
+const Mint = ({nft, loginData, token, web3Handler, login, openLogin, account}) => {
 
 	const[amount, setAmount] = useState(0)
-	const[account, setAccount] = useState('')
 	const price = 5
 
 	const toWei = (num) => ethers.utils.parseEther(num.toString())
@@ -20,29 +20,34 @@ const Mint = ({nft, loginData, token, web3Handler, login, openLogin}) => {
 
 
 	const mint = async () => {
-
 		if(amount < 1 ){
 			window.alert("Please input mint amount.")
-		}
+		} else {
 
 		if(login == false) {
 			openLogin()
 		} else {
-		const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-    setAccount(accounts[0])
+		web3Handler()
+		console.log("nft contract", nft)
 		await nft.mint(account, amount)
-		Axios.post("http://localhost:3001/mintref", {
-	  	mintAmount: amount,
-	  	referralcode: loginData.referralCode      
-    })
+		// Axios.post("http://localhost:3001/mintref", {
+	 //  	mintAmount: amount,
+	 //  	referralcode: loginData.referralCode      
+    // })
 			
   } 	
+		}
+
+
+		
+
+		
 	}
 
   const getData = () => {
   	if(login == false) {
 			openLogin()
-			web3Handler()
+			
 		} 
   }
 
@@ -84,7 +89,7 @@ const Mint = ({nft, loginData, token, web3Handler, login, openLogin}) => {
 		<button className = "button4" onClick = {approveToken}> Approve USDC</button>
 
 		<CrossmintPayButton
-    clientId="32027041-87fe-4f33-be68-32358a45c333"
+    clientId="6814ea16-8898-434a-bdc1-2df101298664"
     environment="production"
     mintConfig={{
         quantity: amount,
