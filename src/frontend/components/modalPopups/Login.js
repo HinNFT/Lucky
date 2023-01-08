@@ -29,7 +29,7 @@ const Login = ({closeLogReg, settingLoginData}) => {
     return (
       <form>
       <div className="text-center">
-          <h3>Login</h3>
+          <h3>Login to continue</h3>
         </div>
         
         <div className="mb-3">

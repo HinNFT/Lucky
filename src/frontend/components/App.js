@@ -20,17 +20,16 @@ function App() {
 
   const[nft, setNft] = useState({})
   const[token, setToken] = useState({})
-  const[addressReg, setAddressReg] = useState('')
+  // const[addressReg, setAddressReg] = useState('')
   const[account, setAccount] = useState('')
   const[openModal, setOpenModal] = useState(false)
   const[loginData, setLoginData] = useState({})
+  const[login, setLogin] = useState(false)
 
 
 
   const web3Handler = async () => {
-    // const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-    // setAddressReg(accounts[0])
-    // setAccount(accounts[0])
+    
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     loadContracts(signer)
@@ -46,6 +45,7 @@ function App() {
 
   const settingLoginData = (loginData) => {
     setLoginData(loginData)
+    setLogin(true)
   }
 
   useEffect(() => {
@@ -66,7 +66,7 @@ function App() {
     <BrowserRouter>
  
     <div>    
-      <LogReg openModal = {openModal} web3Handler ={web3Handler} addressReg = {addressReg} closeLogReg ={closeLogReg} settingLoginData = {settingLoginData} />
+      <LogReg openModal = {openModal} web3Handler ={web3Handler} closeLogReg ={closeLogReg} settingLoginData = {settingLoginData} />
     </div>
 
   
@@ -81,10 +81,10 @@ function App() {
             <Home /> 
           } />
       <Route path = "/Mint" element = { 
-            <Mint nft = {nft} token = {token} web3Handler ={web3Handler} account = {account}/> 
+            <Mint nft = {nft} token = {token} web3Handler ={web3Handler} account = {account} login = {login} openLogin = {openLogin}/> 
           } />
       <Route path = "Account" element = { 
-            <Account  nft = {nft} loginData = {loginData} openLogin ={openLogin}/> 
+            <Account  nft = {nft} loginData = {loginData} openLogin ={openLogin} login = {login}/> 
           } />
 
   

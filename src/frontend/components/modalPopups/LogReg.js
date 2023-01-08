@@ -5,16 +5,15 @@ import Register from './Register'
 import "./Modal.css";
 
 
-const LogReg = ({openModal, web3Handler, addressReg, closeLogReg, settingLoginData}) => {
+const LogReg = ({openModal, web3Handler, closeLogReg, settingLoginData}) => {
    
-
   const [form, setForm] = useState('Login')
 
     let content
     if(form === 'Login') {
       content = <Login closeLogReg = {closeLogReg} settingLoginData = {settingLoginData}/>
     } else {
-      content = <Register web3Handler = {web3Handler} addressReg = {addressReg}/>
+      content = <Register web3Handler = {web3Handler} />
     }
 
 
@@ -23,15 +22,7 @@ if (!openModal) return null;
 
     <div className="modalBackground">
       <div className="modalContainer">
-      <div className="titleCloseBtn">
-          <button
-            onClick = {closeLogReg}
-          >
-            X
-          </button>
-        </div>
-  
-      
+
            <div className="card-body">
 
           {content}

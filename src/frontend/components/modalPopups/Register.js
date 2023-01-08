@@ -2,7 +2,7 @@ import { useState } from 'react'
 import "./Modal.css";
 import Axios from 'axios'
 
-const Register = ({ web3Handler, addressReg}) => {
+const Register = () => {
   const[emailReg, setEmailReg] = useState('')
   const[passwordReg, setPasswordReg] = useState('')
   const[ConfirmPasswordReg, setConfirmPasswordReg] = useState('')
@@ -13,7 +13,6 @@ const Register = ({ web3Handler, addressReg}) => {
       Axios.post("http://localhost:3001/register", {
       email: emailReg,
       password: passwordReg,
-      address: addressReg,
       referrerCode: refCodeReg
     }).then((response) => {
         window.alert(response.data.message)
@@ -70,10 +69,7 @@ const Register = ({ web3Handler, addressReg}) => {
           />
         </div>
         <div className="d-grid">
-         <button  type="button" className="btn btn-secondary" onClick ={web3Handler}>
-            Register Wallet Address ({addressReg.slice(0, 5) + '...' + addressReg.slice(38, 42)})
-          </button>
-          <br/>
+         
         
           <button type="button" className="btn btn-primary" onClick ={register}>
             Sign Up

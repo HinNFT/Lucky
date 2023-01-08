@@ -9,43 +9,50 @@ import m3 from './assets/m3.jpeg'
 import m4 from './assets/m4.jpeg'
 
 
-const Mint = ({nft, loginData, token, web3Handler, account}) => {
+const Mint = ({nft, loginData, token, web3Handler, login, openLogin}) => {
 
 	const[amount, setAmount] = useState(0)
-	const[refCode, setRefCode] = useState('')
+	const[account, setAccount] = useState('')
 	const price = 5
 
 	const toWei = (num) => ethers.utils.parseEther(num.toString())
 
 
 
-
 	const mint = async () => {
-		web3Handler()
 
+		if(amount < 1 ){
+			window.alert("Please input mint amount.")
+		}
 
-		if (refCode == '') {
-			await nft.mint(account, amount)
+		if(login == false) {
+			openLogin()
 		} else {
-			const tx = await nft.mint(account, amount)
-			tx.on((err, res) => {
-            if (err) {
-            window.alert(err);
-    // Perform action here
-  }
-	   //      await Axios.post("http://localhost:3001/mintref", {
-	  	// mintAmount: amount,
-	  	// referralcode: refCode      
-    // })
-	      })
-	  	
+		const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+    setAccount(accounts[0])
+		await nft.mint(account, amount)
+		Axios.post("http://localhost:3001/mintref", {
+	  	mintAmount: amount,
+	  	referralcode: loginData.referralCode      
+    })
+			
+  } 	
 	}
-}
+
+  const getData = () => {
+  	if(login == false) {
+			openLogin()
+			web3Handler()
+		} 
+  }
 
 	const approveToken = async() => {
 		await token.approve(nft.address, toWei(30000))
 	}
 
+	useEffect(()=>{
+		getData()
+	}, [loginData])
 
 
 
@@ -80,41 +87,31 @@ const Mint = ({nft, loginData, token, web3Handler, account}) => {
     clientId="32027041-87fe-4f33-be68-32358a45c333"
     environment="production"
     mintConfig={{
-        quantity: "1",
-        totalPrice: "1",
-        _mintAmount: "1"
+        quantity: amount,
+        totalPrice: (amount * price).toString(),
+        _mintAmount: amount
         // your custom minting arguments...
     }}/>
     
 </div>
-<div className = "mint-input-container">
-          <input
-            type="text"
-            className="mint-input"
-         
-            placeholder="Referral code"
-            onChange={(e)=> {setRefCode(e.target.value)}}
-          />
-          </div>
-          <div>
-          	<h1 className ="qtymint"> Max Quantity 5</h1>
-          </div>
 
-<div className = "mint-input-container">
+
+          <div className = "mint-input-container">
           <input
-            type="text"
+          type = "text"
             className="mint-input"
-            
-           
-            placeholder="N F T s"
+
+            placeholder="M I N T  A M O U N T"
             onChange={(e)=> {setAmount(e.target.value)}}
           />
           </div>
 
-		
-	
-		
-	
+          <div>
+          	<h1 className ="qtymint"> Max Quantity 4</h1>
+          </div>
+
+         
+
 		
 	</div>
 	</div>

@@ -21,7 +21,6 @@ app.post('/register', (req,res) => {
 
   const email = req.body.email 
   const password = req.body.password
-  const address = req.body.address
   const referrer = req.body.referrerCode
   const referralCode = shortid.generate()
   let loginResult
@@ -34,11 +33,10 @@ app.post('/register', (req,res) => {
     res.send({message: "Missing password"})
   } else if(referrer == '') {
     res.send({message: "Missing referral code"})
-  } else if(address == '') {
-    res.send({message: "Missing wallet address. Please Connect Wallet"})
   } else if (email.match(mailformat) == null){
     res.send({message: "Invalid email format"})
   }else {
+
     db.query("SELECT * FROM users WHERE email = ?",[email],
     (err,result) => {
       if (result.length == 0) {
@@ -48,12 +46,9 @@ app.post('/register', (req,res) => {
           if (result.length == 0) {
           res.send({message: "Referral code does not exist."})
           } else {
-             db.query("SELECT * FROM users WHERE walletaddress = ?",[address],
-             (err,result) => { 
-                if (result.length == 0) {
-                    db.query(
-                    "INSERT INTO users (email, password, walletaddress, referrercode, referralcode) VALUES(?,?,?,?,?)", 
-                    [email, password, address, referrer, referralCode],
+               db.query(
+                    "INSERT INTO users (email, password, referrercode, referralcode) VALUES(?,?,?,?)", 
+                    [email, password, referrer, referralCode],
                     (err, result)=> {
                       if(err) {
                           console.log(err)
@@ -64,14 +59,17 @@ app.post('/register', (req,res) => {
                             )
                           res.send({message: "Registration successful. Please Login."})
                           }
-                        })} else {
-            res.send({message: "this wallet address has already been registered."})
-          }}) } 
-        })
-      }else {
-    res.send({message: "User already exists. Please login."})
-   }})}
-  })
+                        })} 
+          }
+   ) }else {
+        res.send({message: "User already exists. Please login."})
+      }
+    }
+
+  )
+        }
+      })
+
 
 
 app.post('/login', (req,res) => {
@@ -109,24 +107,24 @@ app.post('/login', (req,res) => {
   }})
 
 
-app.post('/referral', (req,res) => {
-  const referralCode = req.body.referralCode
-
-  db.query(
-    "SELECT walletaddress FROM users WHERE referralcode = ?",
-    [referralCode],
-    (err, result) => {
-      if(err) {
-        res.send({err: err})
-      }
-
-      if(result.length > 0) {
-        res.send(result)
-      } else {
-        res.send({message: "fetch wallet fail"})
-      }
-    })
-})
+// app.post('/referral', (req,res) => {
+//   const referralCode = req.body.referralCode
+// 
+//   db.query(
+//     "SELECT walletaddress FROM users WHERE referralcode = ?",
+//     [referralCode],
+//     (err, result) => {
+//       if(err) {
+//         res.send({err: err})
+//       }
+// 
+//       if(result.length > 0) {
+//         res.send(result)
+//       } else {
+//         res.send({message: "fetch wallet fail"})
+//       }
+//     })
+// })
 
 app.post('/mintref', (req,res) => {
   const refCode = req.body.referralCode

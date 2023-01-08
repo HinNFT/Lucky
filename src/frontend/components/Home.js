@@ -142,9 +142,8 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
-                    data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
-                    <div class="features-item">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                    
                         <div class="text-center">
                        <h3 style= {{color : '#ffffa1'}} >LIGHT</h3>
                             
@@ -153,18 +152,17 @@ const Home = () => {
                             
                             
                         </div>
-                    </div>
+                    
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
-                    data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                    <div class="features-item">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                    
                         <div class="text-center">
                        <h3 style= {{color : 'red'}} >FALLEN</h3>
                            
                             <img src={fallen} height={200} />
                           
                         </div>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -184,7 +182,7 @@ const Home = () => {
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12">
                        
                         <h1>PAYOUT REWARDS <br/> COUNTDOWN <br/> XX DAYS LEFT</h1>
-                        <p>only available to nft minters before 7/02/2023.</p>
+                        <p>only available to nft minters before 20/01/2023.</p>
                   </div>
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     	<img src= {lucky1} class ="responsive-lucky1" />
