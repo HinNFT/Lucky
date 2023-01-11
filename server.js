@@ -10,10 +10,36 @@ app.use(cors())
 
 const db = mysql.createConnection({
   user: "root",
-  host: "localhost",
-  password: "password",
-  database: "logindatabase",
+  password: "207055Ff",
+  host: "34.70.147.174",
+  port: "3306",
+  database: "LuckyUsers",
 })
+
+
+
+app.post('/webhook', (req,res) => {
+  const whPassThroughArgs = req.body.whPassThroughArgs
+  const args = JSON.parse(whPassThroughArgs);
+  const referralCode = args.referral
+  const amount = args.amount
+
+  console.log(args)
+
+  db.query(
+    "INSERT INTO crossmintusers (referralcode, amount) VALUES (?,?)", 
+    [referralCode, amount], 
+    (err, result) => {
+      if(err) {
+        console.log(err)
+      } else {
+        console.log(result)
+      }
+      
+    })
+})
+
+
 
 const mailformat = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
@@ -158,6 +184,15 @@ app.post('/refData', (req,res) => {
 
 
 
-app.listen(3001, ()=> {
-  console.log('running server')
-})
+
+db.connect(function(err){
+
+if(!err) {
+    console.log("Database is connected ... ");    
+} else {
+    console.log(err);    
+}})
+
+
+
+app.listen(3306, ()=> console.log('api running on 3306'))

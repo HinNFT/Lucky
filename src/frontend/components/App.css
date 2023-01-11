@@ -30,10 +30,6 @@
     font-size: 15px !important;
   }
 
-  .loginButton {
-    color: #F37021 !important;
-  }
-
 
 .header-text h1 {
   padding-top: 0%;
@@ -66,8 +62,125 @@
   position: relative;
 }
 
+
+
+body, html {
+  height: 100%;
+}
+.bg {
+  background-image: url(./assets/mintbg.jpeg);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.button4 {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 3px 2px;
+  letter-spacing: 1px;
+  border-radius: 20px;
+}
+
+.mintbutton-container {
+  padding-top: 2%;
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+
+}
+.mintbutton-container h2{
+ padding-left: 1%;
+ padding-right: 1%;
+ color: white;
+
+
+}
+
+
+
+.mint-input {
+  border-radius: 15px;
+  border: none;
+  font-size: 17px;
+  margin: 6px 5px;
+  height:60px;
+  width: 300px;
+  text-align: center; 
+
+
+}
+
+.mint-input-container {
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+
+.qtymint {
+  font-weight: 900;
+  font-size: 40px;
+  letter-spacing: 4px;
+  color: white;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.mint-img {
+  padding-top: 2%;
+}
+
+.lucky-img {
+  width: 120px;
+}
+
+.price p {
+  color:white;
+}
+
+@media (max-width: 480px) {
+  .lucky-img {
+  width: 80px;
+}
+}
+
+.minting {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .loginButton {
+    color: #F37021 !important;
+  }
+
+
+
+
+
+
 .bgOrange {
   background-color: #F37021;
+  min-height: 100vh;
 }
 
 .responsive-lucky {
@@ -203,65 +316,12 @@
 
 }
 
-body, html {
-  height: 100%;
-}
-.bg {
-  background-image: url(./assets/mintbg.jpeg);
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.button4 {
-  background-color: white;
-  border: none;
-  color: black;
-  padding: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 3px 2px;
-  border-radius: 20px;
-}
-
-.mintbutton-container {
-  padding-top: 2%;
-  display: flex;
-  margin: 10px;
-  align-items: center;
-  justify-content: center;
-
-}
-
-.mint-input {
-  border-radius: 15px;
-  border: none;
-  font-size: 25px;
-  margin: 4px 2px;
 
 
-}
-
-.mint-input-container {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
 
 
-.qtymint {
-  font-weight: 900;
-  font-size: 40px;
-  letter-spacing: 4px;
-  color: white;
-  font-family: 'League Spartan', sans-serif;
-}
 
-.mint-img {
-  padding-top: 2%;
-}
+
 
 .features-item {
   border-radius: 5px;
