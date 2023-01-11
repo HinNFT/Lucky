@@ -17,14 +17,14 @@ const Account = ({lucky, loginData, openLogin, login}) => {
 
 		if(login == false) {
 			openLogin()
-			Axios.post("https://lucky568booo0998boo.info/refData", {
+			Axios.post("https://lucky568booo0998boo.info:3306/refData", {
 	      refCode: loginData.referralcode
 	    }).then((response) => {
 	        setData(response.data)	  
 	             
 	      })
 		} else {
-			Axios.post("https://lucky568booo0998boo.info/refData", {
+			Axios.post("https://lucky568booo0998boo.info:3306/refData", {
 	      refCode: loginData.referralcode
 	    }).then((response) => {
 	        setData(response.data)	        

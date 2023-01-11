@@ -10,7 +10,7 @@ const Register = ({accountReg, web3Handler, setLogin}) => {
 
   const register = () => {
     if(passwordReg === ConfirmPasswordReg) {
-      Axios.post("https://lucky568booo0998boo.info/register", {
+      Axios.post("https://lucky568booo0998boo.info:3306/register", {
       email: emailReg,
       password: passwordReg,
       referrerCode: refCodeReg,
