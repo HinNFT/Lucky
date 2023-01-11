@@ -97,7 +97,7 @@ const whArgs = {
   return (
  
     <div className="bg">
-    <a href="https://www.lucky.boo/"><img src ={Home} width ={150}/></a>
+   
      
       
       <div className="text-center">
@@ -194,4 +194,6 @@ const whArgs = {
 }
 
 export default Mint;
+
+ // <a href="https://www.lucky.boo/"><img src ={Home} width ={150}/></a>
 

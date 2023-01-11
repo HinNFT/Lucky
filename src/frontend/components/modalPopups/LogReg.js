@@ -7,15 +7,23 @@ import "./Modal.css";
 
 const LogReg = ({openModal, closeLogReg, settingLoginData, accountReg, web3Handler }) => {
    
-  const [form, setForm] = useState('Login')
+  const [form, setForm] = useState('Register')
+  const setLogin = () => {
+    setForm('Login')
+  }
+
+  const setRegister = () => {
+    setForm('Register')
+  }
 
     let content
     if(form === 'Login') {
-      content = <Login closeLogReg = {closeLogReg} settingLoginData = {settingLoginData} web3Handler = {web3Handler}/>
+      content = <Login closeLogReg = {closeLogReg} settingLoginData = {settingLoginData} web3Handler = {web3Handler} setRegister ={setRegister}/>
     } else {
-      content = <Register accountReg ={accountReg}/>
+      content = <Register accountReg ={accountReg} setLogin ={setLogin}/>
     }
 
+  
 
 if (!openModal) return null;
   return (
@@ -30,21 +38,9 @@ if (!openModal) return null;
 
           </div>
 
-              <button type="button"
-              className="btn btn-light"
-              onClick ={(event) => {
-                setForm('Login')
-              }}>
-            Already registered? Login
-          </button>
+              
 
-          <button type="button"
-          className ="btn btn-light"
-          onClick ={(event) => {
-                setForm('Register')
-              }}>              
-            Register account
-          </button>
+         
 
 
         </div>

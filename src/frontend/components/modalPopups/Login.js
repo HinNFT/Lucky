@@ -2,7 +2,7 @@ import { useState } from 'react';
 import "./Modal.css";
 import Axios from 'axios'
 
-const Login = ({closeLogReg, settingLoginData}) => {
+const Login = ({closeLogReg, settingLoginData, setRegister}) => {
 
   const[email, setEmail] = useState('')
   const[password, setPassword] = useState('')
@@ -54,7 +54,14 @@ const Login = ({closeLogReg, settingLoginData}) => {
           <button type="button" className="btn btn-primary" onClick={login}>
             Login
           </button>
+
+          <button type="button"
+          className ="btn btn-light"
+          onClick ={setRegister}>              
+            Register account
+          </button>
         </div>
+         
  
         
       </form>

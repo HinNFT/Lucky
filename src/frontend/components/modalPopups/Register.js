@@ -2,7 +2,7 @@ import { useState } from 'react'
 import "./Modal.css";
 import Axios from 'axios'
 
-const Register = ({accountReg, web3Handler}) => {
+const Register = ({accountReg, web3Handler, setLogin}) => {
   const[emailReg, setEmailReg] = useState('')
   const[passwordReg, setPasswordReg] = useState('')
   const[ConfirmPasswordReg, setConfirmPasswordReg] = useState('')
@@ -71,13 +71,21 @@ const Register = ({accountReg, web3Handler}) => {
         </div>
         <div className="d-grid">
          <button type="button" className="btn btn-secondary" onClick ={web3Handler}>
-            Connect Wallet ()
+            Connect Wallet ({accountReg.slice(0, 5) + '...' + accountReg.slice(38, 42)})
           </button>
         
           <button type="button" className="btn btn-primary" onClick ={register}>
             Sign Up
           </button>
+          <button type="button"
+              className="btn btn-light"
+              onClick ={setLogin}>
+            Already registered? Login
+          </button>
         </div>
+        
+
+          
 
     
       </form>
