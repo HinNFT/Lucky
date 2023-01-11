@@ -60,10 +60,6 @@ function App() {
     setToken(Lime) 
   }
 
- 
-  useEffect(()=> {
-    web3Handler()
-  }, [])
 
   const settingLoginData = (loginData) => {
     setLoginData(loginData)
