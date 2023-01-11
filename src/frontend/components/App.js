@@ -30,7 +30,12 @@ function App() {
 
 
  const web3Handler = async () => {
-  window.ethereum.request({
+ 
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+    setAccountReg(accounts[0])
+    setAccount(accounts[0])
+
+     window.ethereum.request({
     method: "wallet_addEthereumChain",
     params: [{
         chainId: "0x89",
@@ -44,9 +49,6 @@ function App() {
         blockExplorerUrls: ["https://explorer.matic.network"]
     }]
 });
-    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-    setAccountReg(accounts[0])
-    setAccount(accounts[0])
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     loadContracts(signer)
