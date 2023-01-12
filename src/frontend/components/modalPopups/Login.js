@@ -8,7 +8,7 @@ const Login = ({closeLogReg, settingLoginData, setRegister}) => {
   const[password, setPassword] = useState('')
 
   const login = async () => {
-    await Axios.post("http://localhost:3306/login", {
+    await Axios.post("https://lucky568booo0998boo.info/login", {
       email: email,
       password: password
     }).then((response) => {
