@@ -17,14 +17,14 @@ const Account = ({lucky, loginData, openLogin, login}) => {
 
 		if(login == false) {
 			openLogin()
-			Axios.post("https://lucky568booo0998boo.info:3306/refData", {
+			Axios.post("http://localhost:3306/refData", {
 	      refCode: loginData.referralcode
 	    }).then((response) => {
 	        setData(response.data)	  
 	             
 	      })
 		} else {
-			Axios.post("https://lucky568booo0998boo.info:3306/refData", {
+			Axios.post("http://localhost:3306/refData", {
 	      refCode: loginData.referralcode
 	    }).then((response) => {
 	        setData(response.data)	        
@@ -60,10 +60,10 @@ const Account = ({lucky, loginData, openLogin, login}) => {
     
      
 
-
-	useEffect(()=>{
-		getData()
-	}, [loginData])
+// 
+// 	useEffect(()=>{
+// 		getData()
+// 	}, [loginData])
 
   
 
@@ -93,7 +93,7 @@ const Account = ({lucky, loginData, openLogin, login}) => {
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                     <div class="features-item">
                         <div class="features-icon">
-                            <h2>{loginData.signupreferralcount}</h2>
+                            <h2>{loginData.signupreferrals}</h2>
                             <img src="assets/images/features-icon-1.png" alt=""/>
                             <h4>Your Signup Referrals</h4>
                             
@@ -104,7 +104,7 @@ const Account = ({lucky, loginData, openLogin, login}) => {
                     data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
                     <div class="features-item">
                         <div class="features-icon">
-                            <h2>{loginData.mintreferralcount}</h2>
+                            <h2>{loginData.mintreferrals}</h2>
                             <img src="assets/images/features-icon-2.png" alt=""/>
                             <h4>Your Mint Referrals</h4>
                             
@@ -129,7 +129,7 @@ const Account = ({lucky, loginData, openLogin, login}) => {
        {checkWallet}
        
 
-        	<h3 className="font-link-League">Your Referrer: {loginData.referrercode}</h3>
+        	<h3 className="font-link-League">Your Referrer: {loginData.referrer}</h3>
 		
 		<div>
 			<button onClick={showData}> show referral data </button>

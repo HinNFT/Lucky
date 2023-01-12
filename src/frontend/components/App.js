@@ -35,20 +35,20 @@ function App() {
     setAccountReg(accounts[0])
     setAccount(accounts[0])
 
-     window.ethereum.request({
-    method: "wallet_addEthereumChain",
-    params: [{
-        chainId: "0x89",
-        rpcUrls: ["https://polygon-rpc.com/"],
-        chainName: "Matic Mainnet",
-        nativeCurrency: {
-            name: "MATIC",
-            symbol: "MATIC",
-            decimals: 18
-        },
-        blockExplorerUrls: ["https://explorer.matic.network"]
-    }]
-});
+//      window.ethereum.request({
+//     method: "wallet_addEthereumChain",
+//     params: [{
+//         chainId: "0x89",
+//         rpcUrls: ["https://polygon-rpc.com/"],
+//         chainName: "Matic Mainnet",
+//         nativeCurrency: {
+//             name: "MATIC",
+//             symbol: "MATIC",
+//             decimals: 18
+//         },
+//         blockExplorerUrls: ["https://explorer.matic.network"]
+//     }]
+// });
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     loadContracts(signer)
@@ -90,10 +90,11 @@ function App() {
 
     <Navigation Mint = {Mint} Account = {Account}  openLogin ={openLogin} loginData = {loginData} /> 
  
-  
+ 
 <Routes>
+
       <Route path = "/" element = { 
-            <Mint nft = {nft} token = {token} web3Handler = {web3Handler} account = {account} login = {login} openLogin = {openLogin}/> 
+            <Mint nft = {nft} token = {token} web3Handler = {web3Handler} account = {account} login = {login} openLogin = {openLogin} loginData = {loginData}/> 
           } />
       <Route path = "Account" element = { 
             <Account  nft = {nft} loginData = {loginData} openLogin ={openLogin} login = {login} web3Handler = {web3Handler}/> 

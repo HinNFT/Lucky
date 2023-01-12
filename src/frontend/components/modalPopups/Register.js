@@ -2,21 +2,40 @@ import { useState } from 'react'
 import "./Modal.css";
 import Axios from 'axios'
 
-const Register = ({accountReg, web3Handler, setLogin}) => {
+const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginData}) => {
   const[emailReg, setEmailReg] = useState('')
   const[passwordReg, setPasswordReg] = useState('')
   const[ConfirmPasswordReg, setConfirmPasswordReg] = useState('')
   const[refCodeReg, setRefCodeReg] = useState('')
 
   const register = () => {
+
     if(passwordReg === ConfirmPasswordReg) {
-      Axios.post("https://lucky568booo0998boo.info:3306/register", {
+      Axios.post("http://localhost:3306/register", {
       email: emailReg,
       password: passwordReg,
-      referrerCode: refCodeReg,
+      referrer: refCodeReg,
       account: accountReg
     }).then((response) => {
+     if(response.data.message == "Registration successful. Please Login."){
+
+       Axios.post("https://lucky568booo0998boo.info/login", {
+      email: emailReg,
+      password: passwordReg
+    }).then((response) => {
+      if(response.data.message){
         window.alert(response.data.message)
+      } else {
+        settingLoginData(response.data[0])
+        closeLogReg()
+        window.alert(`Registration successful, Logged in as '${response.data[0].email}'`)  
+           }
+    })
+        
+      } else {
+        window.alert(response.data.message)
+
+      }  
       })
     } else {
       window.alert("Passwords don't match!")

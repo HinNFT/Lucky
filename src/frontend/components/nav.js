@@ -19,7 +19,7 @@ const Navigation = ({Mint, Account, Home, openLogin , loginData}) => {
                 </Navbar.Brand>
                 
                     <Nav className="me-auto">
-                    <Nav.Link as={Link} href="https://www.lucky.boo"> HOME </Nav.Link>  
+                     <Nav.Link ><a className ="home-link" href="https://www.lucky.boo"> HOME </a>  </Nav.Link>
                     <Nav.Link as={Link} to="/"> MINT </Nav.Link>
                     <Nav.Link as={Link} to="/Account"> ACCOUNT </Nav.Link>  
 

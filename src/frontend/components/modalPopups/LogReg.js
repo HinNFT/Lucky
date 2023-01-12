@@ -18,9 +18,9 @@ const LogReg = ({openModal, closeLogReg, settingLoginData, accountReg, web3Handl
 
     let content
     if(form === 'Login') {
-      content = <Login closeLogReg = {closeLogReg} settingLoginData = {settingLoginData} web3Handler = {web3Handler} setRegister ={setRegister}/>
+      content = <Login closeLogReg = {closeLogReg} settingLoginData = {settingLoginData}  setRegister ={setRegister}/>
     } else {
-      content = <Register accountReg ={accountReg} setLogin ={setLogin}/>
+      content = <Register accountReg ={accountReg} setLogin ={setLogin} web3Handler = {web3Handler} closeLogReg = {closeLogReg} settingLoginData = {settingLoginData}/>
     }
 
   
@@ -37,11 +37,6 @@ if (!openModal) return null;
           
 
           </div>
-
-              
-
-         
-
 
         </div>
         </div>   

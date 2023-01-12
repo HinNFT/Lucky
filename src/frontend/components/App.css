@@ -16,6 +16,10 @@
 
 }
 
+.home-link {
+  color: #F37021;
+}
+
 .navbar-brand {
   transform: translateX(-50%);
   font-family: 'League Spartan', sans-serif;
