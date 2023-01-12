@@ -11,7 +11,11 @@ const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginD
   const[busy, setBusy] = useState(false)
 
   const register = () => {
-    setBusy(true)
+
+    if (refCodeReg === '') {
+      window.alert("no referral code inserted")
+    } else {
+      setBusy(true)
 
     if(passwordReg === ConfirmPasswordReg) {
       Axios.post("https://lucky568booo0998boo.info/register", {
@@ -49,6 +53,9 @@ const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginD
       window.alert("Passwords don't match!")
     }
 
+
+    }
+    
     
     }
   
