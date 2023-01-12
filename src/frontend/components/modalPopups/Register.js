@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import "./Modal.css";
 import Axios from 'axios'
+import { Spinner } from 'react-bootstrap'
 
 const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginData}) => {
   const[emailReg, setEmailReg] = useState('')
   const[passwordReg, setPasswordReg] = useState('')
   const[ConfirmPasswordReg, setConfirmPasswordReg] = useState('')
   const[refCodeReg, setRefCodeReg] = useState('')
+  const[busy, setBusy] = useState(false)
 
   const register = () => {
-    
+    setBusy(true)
+
     if(passwordReg === ConfirmPasswordReg) {
       Axios.post("http://localhost:3306/register", {
       email: emailReg,
@@ -28,16 +31,21 @@ const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginD
       } else {
         settingLoginData(response.data[0])
         closeLogReg()
+        setBusy(false)
         window.alert(`Registration successful, Logged in as '${response.data[0].email}'`)  
+
            }
     })
         
       } else {
+        setBusy(false)
         window.alert(response.data.message)
+
 
       }  
       })
     } else {
+      setBusy(false)
       window.alert("Passwords don't match!")
     }
 
@@ -93,9 +101,14 @@ const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginD
             Connect Wallet ({accountReg.slice(0, 5) + '...' + accountReg.slice(38, 42)})
           </button>
         
-          <button type="button" className="btn btn-primary" onClick ={register}>
+        {busy ? (<button type="button" className="btn btn-primary">
+            <Spinner animation="border" style={{ display: 'flex', color: 'white'}} />
+          </button>) 
+
+        : (<button type="button" className="btn btn-primary" onClick ={register}>
             Sign Up
-          </button>
+          </button>)}
+          
           <button type="button"
               className="btn btn-light"
               onClick ={setLogin}>

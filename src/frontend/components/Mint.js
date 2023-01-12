@@ -37,19 +37,17 @@ const Mint = ({nft, loginData, token, web3Handler, login, openLogin, account}) =
   
 
   const mint = async () => {
-    console.log(refCode)
   //checking for refcode availability
     if (refCode === null) {
       window.alert('LuckyBoo is in referral minting stage. Please get referral link from a user to mint!')
     } else {
-
-       await Axios.post("http://localhost:3306/checkreferrerpercent", {
+     await Axios.post("http://localhost:3306/checkreferralcode", {
       referrer: refCode,
     }).then(async (response) => {
-      if(response === "Invalid referral link."){
-        window.alert(response)
-      } else {    
+      if(response.data.message == "Invalid referral link!"){
+        window.alert(response.data.message)
 
+      } else {    
     const allowance = await token.allowance(account, nft.address)
     const balance = await token.balanceOf(account)
  
@@ -89,20 +87,23 @@ const Mint = ({nft, loginData, token, web3Handler, login, openLogin, account}) =
     
 const checkPercent = async () => { 
   
-   await Axios.post("http://localhost:3306/checkreferrerpercent", {
+   await Axios.post("http://localhost:3306/checkreferrerDIRECTpercent", {
       referrer: refCode,
-    }).then((response) => {
-      if(response.data){
-        console.log(response.data)
-
-      } else {
-        console.log(response)
-        // setReferrerPercent()
-           }
-      })
+//     }).then((response) => {
+//       if(response.data){
+//         console.log(response.data)
+// 
+//       } else {
+//         console.log(response)
+//         // setReferrerPercent()
+//            }
+//       })
   
 
   }
+
+  )
+ }
 
 
 
@@ -150,11 +151,6 @@ const whArgs = {
     await token.approve(nft.address, toWei(30000))
   }
 
-  const checkLogin = () => {
-    if(login === false){
-      openLogin()
-    }
-  }
 
   // useEffect(()=> {
   //   checkLogin()
