@@ -79,7 +79,7 @@ const Account = ({lucky, loginData, openLogin, login}) => {
 
 		
 		<h3> YOUR MINT REFFERAL LINK: <a className ="text-orange"> https://mint.lucky.boo/?ref={loginData.referralcode} </a> </h3>
-        <h3> YOUR SIGN UP REFFERAL LINK: <a className ="text-orange"> https://mint.lucky.boo/?ref={loginData.referralcode} </a></h3>
+        <h3> YOUR SIGN UP REFFERAL LINK: <a className ="text-orange"> https://lucky7.wtf/?ref={loginData.referralcode} </a></h3>
 
 	
 			
