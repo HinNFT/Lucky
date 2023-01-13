@@ -9,6 +9,7 @@ const Account = ({lucky, loginData, openLogin, login}) => {
 	const[data, setData] = useState({})
 	const[viewData, setViewData] = useState(false)
 	const[referCode, setReferCode] = useState('')
+    const[rank, setRank] = useState('Scout')
 
 
 
@@ -73,11 +74,12 @@ const Account = ({lucky, loginData, openLogin, login}) => {
   		<div className="container">
 
   		<div className="account-text">
-		<h3>Account: {loginData.email}</h3>
-		</div>
+		<h3>Account: <a className ="text-orange"> {loginData.email} </a></h3>
+		
 
-		<div className="refCode">
-		<h1>YOUR REFFERAL CODE:   {loginData.referralcode}</h1>
+		
+		<h3> YOUR MINT REFFERAL LINK: <a className ="text-orange"> https://mint.lucky.boo/?ref={loginData.referralcode} </a> </h3>
+        <h3> YOUR SIGN UP REFFERAL LINK: <a className ="text-orange"> https://mint.lucky.boo/?ref={loginData.referralcode} </a></h3>
 
 	
 			
@@ -93,7 +95,7 @@ const Account = ({lucky, loginData, openLogin, login}) => {
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                     <div class="features-item">
                         <div class="features-icon">
-                            <h2>{loginData.signupreferrals}</h2>
+                            <h2>{login ? (loginData.signupreferrals) : (0)}</h2>
                             <img src="assets/images/features-icon-1.png" alt=""/>
                             <h4>Your Signup Referrals</h4>
                             
@@ -104,7 +106,7 @@ const Account = ({lucky, loginData, openLogin, login}) => {
                     data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
                     <div class="features-item">
                         <div class="features-icon">
-                            <h2>{loginData.mintreferrals}</h2>
+                            <h2>{login ? (loginData.mintreferrals) : (0)}</h2>
                             <img src="assets/images/features-icon-2.png" alt=""/>
                             <h4>Your Mint Referrals</h4>
                             
@@ -115,7 +117,7 @@ const Account = ({lucky, loginData, openLogin, login}) => {
                     data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
                     <div class="features-item"> 
                         <div class="features-icon">
-                            <h2>Scout</h2>
+                            <h2>{rank}</h2>
                             <img src="assets/images/features-icon-3.png" alt=""/>
                             <h4>Your Rank</h4>
                             

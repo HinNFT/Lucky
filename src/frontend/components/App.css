@@ -152,7 +152,18 @@ body, html {
 @media (max-width: 480px) {
   .lucky-img {
   width: 80px;
+  }
+
+
+  .navbar-brand {
+  transform: translateX(-50%);
+  font-family: 'League Spartan', sans-serif;
+  letter-spacing: 1rem;
+  font-size: 1rem; 
+  left: 50%;
+  position: absolute;
 }
+
 }
 
 .minting {
@@ -323,7 +334,9 @@ body, html {
 
 
 
-
+.text-orange {
+  color : #F37021;
+}
 
 
 
@@ -338,7 +351,7 @@ body, html {
   z-index: 9;
   top: 15px;
   left: 45px;
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 600;
   color: #F37021;
 }
@@ -355,6 +368,10 @@ body, html {
 .account-text {
   padding-top: 5%;
   font-family: 'League Spartan', sans-serif;
+}
+
+.account-text a {
+  color: #F37021;
 }
 
 .refCode {

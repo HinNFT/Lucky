@@ -43,7 +43,7 @@ const Mint = ({nft, loginData, token, web3Handler, login, openLogin, account}) =
     if (refCode === null) {
       window.alert('LuckyBoo is in referral minting stage. Please get referral link from a user to mint!')
     } else {
-     await Axios.post("https://lucky568booo0998boo.info/checkreferralcode", {
+     await Axios.post("http://localhost:3306/checkreferralcode", {
       referrer: refCode,
     }).then(async (response) => {
       if(response.data.message == "Invalid referral link!"){
@@ -51,7 +51,6 @@ const Mint = ({nft, loginData, token, web3Handler, login, openLogin, account}) =
 
       } else {    
     
- 
     if(amount === 0 ){
       window.alert("Please input mint amount.")
     } else if (amount > 4){
@@ -87,28 +86,15 @@ const Mint = ({nft, loginData, token, web3Handler, login, openLogin, account}) =
 
     
 const checkPercent = async () => { 
-  console.log(amount)
+  console.log(refCode)
   
-   await Axios.post("https://lucky568booo0998boo.info/checkreferrerDIRECTpercent", {
+   await Axios.post("http://localhost:3306/checkreferrerDIRECTpercent", {
       referrer: refCode,
-      amount: amount,
       price: price
-
-//     }).then((response) => {
-//       if(response.data){
-//         console.log(response.data)
-// 
-//       } else {
-//         console.log(response)
-//         // setReferrerPercent()
-//            }
-//       })
+    })
+}
   
 
-  }
-
-  )
- }
 
 
 
