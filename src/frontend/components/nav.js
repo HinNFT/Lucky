@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Button, Navbar, Nav, Container } from 'react-bootstrap'
+import { Navbar, Nav, Container } from 'react-bootstrap'
 
 
-const Navigation = ({Mint, Account, Home, openLogin , loginData}) => {
+const Navigation = ({Mint, Home, openLogin , loginData, login}) => {
 
     return (
         <Navbar className ="py-4"expand="lg" bg="black" variant="dark" >
@@ -19,19 +19,18 @@ const Navigation = ({Mint, Account, Home, openLogin , loginData}) => {
                 </Navbar.Brand>
                 
                     <Nav className="me-auto">
-                     <Nav.Link ><a className ="home-link" href="https://www.lucky.boo"> HOME </a>  </Nav.Link>
+                    <Nav.Link ><a className ="home-link" href="https://www.lucky.boo"> HOME </a>  </Nav.Link>
                     <Nav.Link as={Link} to="/"> MINT </Nav.Link>
-                    <Nav.Link as={Link} to="/Account"> ACCOUNT </Nav.Link>  
+                    <Nav.Link ><a className ="home-link" href="https://user.lucky.boo"> REFERRALS </a>  </Nav.Link>
 
                     </Nav>
 
-                    <Nav>
+                    
+                    {login ? (<p className="acc">{loginData.email}</p>) : (<Nav>
                     <Nav.Link as={Link} onClick = {openLogin}> REGISTER </Nav.Link> 
                     <Nav.Link as={Link}  onClick = {openLogin} className ="loginButton"> LOGIN </Nav.Link>    
+                    </Nav>)}
                     
-                  
-                        
-                    </Nav>
 
                     
                 </Navbar.Collapse>

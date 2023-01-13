@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import "./Modal.css";
 import Axios from 'axios'
 import { Spinner } from 'react-bootstrap'
@@ -10,10 +10,12 @@ const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginD
   const[refCodeReg, setRefCodeReg] = useState('')
   const[busy, setBusy] = useState(false)
 
+  const searchParams = new URLSearchParams(document.location.search)
+
   const register = () => {
 
     if (refCodeReg === '') {
-      window.alert("no referral code inserted")
+      window.alert("No referral code inserted! Please get referral link from a user to sign up. ")
     } else {
       setBusy(true)
 
@@ -24,7 +26,7 @@ const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginD
       referrer: refCodeReg,
       account: accountReg
     }).then((response) => {
-     if(response.data.message == "Registration successful. Please Login."){
+     if(response.data.message === "Registration successful. Please Login."){
 
        Axios.post("http://localhost:3306/login", {
       email: emailReg,
@@ -58,6 +60,10 @@ const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginD
     
     
     }
+
+    useEffect(()=> {
+    setRefCodeReg(searchParams.get('ref'))
+  }, [])
   
    return (
       <form>
@@ -99,14 +105,13 @@ const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginD
           <input
             type="text"
             className="form-control"
-            placeholder="Referral code"
-            onChange={(e)=> {setRefCodeReg(e.target.value)}}
+            placeholder="referral code"
+            readOnly
+             value={refCodeReg}
           />
         </div>
         <div className="d-grid">
-         <button type="button" className="btn btn-secondary" onClick ={web3Handler}>
-            Connect Wallet ({accountReg.slice(0, 5) + '...' + accountReg.slice(38, 42)})
-          </button>
+        
         
         {busy ? (<button type="button" className="btn btn-primary">
             <Spinner animation="border" style={{ display: 'flex', color: 'white'}} />

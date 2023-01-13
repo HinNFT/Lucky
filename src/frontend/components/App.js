@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react'
 import { ethers } from 'ethers'; 
 import './App.css'
-import Web3Modal from 'web3modal'
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import WalletLink from "walletlink"
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Navigation from './nav'
 import Mint from "./Mint"
-import Account from "./Account"
 import LogReg from "./modalPopups/LogReg"
 
 import LuckyAbi from '../contractsData/LuckyNFT.json'
@@ -27,6 +23,7 @@ function App() {
   const[login, setLogin] = useState(false)
   const[account, setAccount] = useState('')
   const[accountReg, setAccountReg] = useState('')
+  const[provider, setProvider] = useState({})
 
 
  const web3Handler = async () => {
@@ -35,21 +32,22 @@ function App() {
     setAccountReg(accounts[0])
     setAccount(accounts[0])
 
-//      window.ethereum.request({
-//     method: "wallet_addEthereumChain",
-//     params: [{
-//         chainId: "0x89",
-//         rpcUrls: ["https://polygon-rpc.com/"],
-//         chainName: "Matic Mainnet",
-//         nativeCurrency: {
-//             name: "MATIC",
-//             symbol: "MATIC",
-//             decimals: 18
-//         },
-//         blockExplorerUrls: ["https://explorer.matic.network"]
-//     }]
-// });
+     window.ethereum.request({
+    method: "wallet_addEthereumChain",
+    params: [{
+        chainId: "0x89",
+        rpcUrls: ["https://polygon-rpc.com/"],
+        chainName: "Matic Mainnet",
+        nativeCurrency: {
+            name: "MATIC",
+            symbol: "MATIC",
+            decimals: 18
+        },
+        blockExplorerUrls: ["https://explorer.matic.network"]
+    }]
+});
     const provider = new ethers.providers.Web3Provider(window.ethereum)
+    setProvider(provider)
     const signer = provider.getSigner()
     loadContracts(signer)
    }
@@ -87,19 +85,14 @@ function App() {
   
     <div >
     
-
-    <Navigation Mint = {Mint} Account = {Account}  openLogin ={openLogin} loginData = {loginData} /> 
+    <Navigation login = {login} Mint = {Mint}  openLogin ={openLogin} loginData = {loginData} /> 
  
  
 <Routes>
 
       <Route path = "/" element = { 
-            <Mint nft = {nft} token = {token} web3Handler = {web3Handler} account = {account} login = {login} openLogin = {openLogin} loginData = {loginData}/> 
+            <Mint provider = {provider} nft = {nft} token = {token} web3Handler = {web3Handler} account = {account} login = {login} openLogin = {openLogin} loginData = {loginData}/> 
           } />
-      <Route path = "Account" element = { 
-            <Account  nft = {nft} loginData = {loginData} openLogin ={openLogin} login = {login} web3Handler = {web3Handler}/> 
-          } />
-
   
           </Routes>
           

@@ -30,6 +30,13 @@ if (!openModal) return null;
 
     <div className="modalBackground">
       <div className="modalContainer">
+      <div className="titleCloseBtn">
+          <button
+            onClick={closeLogReg}
+          >
+            X
+          </button>
+        </div>
 
            <div className="card-body">
 
