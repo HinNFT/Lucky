@@ -61,10 +61,10 @@ const Account = ({lucky, loginData, openLogin, login}) => {
     
      
 
-// 
-// 	useEffect(()=>{
-// 		getData()
-// 	}, [loginData])
+
+	useEffect(()=>{
+		getData()
+	}, [loginData])
 
   
 
