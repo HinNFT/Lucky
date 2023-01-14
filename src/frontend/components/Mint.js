@@ -216,6 +216,11 @@ useEffect(()=> {
             readOnly
           />
            </div>
+           <div className = "mint-input-container">
+           <a href="https://www.lucky.boo/lucky-nft" target="_blank">
+          <button className="button5">Project info</button>
+          </a>
+           </div>
 
            
 

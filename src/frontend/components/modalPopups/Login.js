@@ -2,13 +2,13 @@ import { useState } from 'react';
 import "./Modal.css";
 import Axios from 'axios'
 
-const Login = ({closeLogReg, settingLoginData, setRegister}) => {
+const Login = ({closeLogReg, settingLoginData, setRegister, setForgetPassword}) => {
 
   const[email, setEmail] = useState('')
   const[password, setPassword] = useState('')
 
   const login = async () => {
-    await Axios.post("https://lucky568booo0998boo.info/login", {
+    await Axios.post("http://localhost:3306/login", {
       email: email,
       password: password
     }).then((response) => {
@@ -27,10 +27,12 @@ const Login = ({closeLogReg, settingLoginData, setRegister}) => {
 
     return (
       <form>
+
       <div className="text-center">
           <h3>Login to continue</h3>
         </div>
         
+              <div className = "pass-container">
         <div className="mb-3">
 
           <input
@@ -61,9 +63,10 @@ const Login = ({closeLogReg, settingLoginData, setRegister}) => {
             Register account
           </button>
         </div>
+        <p onClick ={setForgetPassword}>Forgot password?</p>
          
  
-        
+        </div>
       </form>
 
       
