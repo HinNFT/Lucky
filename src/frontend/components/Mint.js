@@ -12,7 +12,7 @@ import { Spinner } from 'react-bootstrap'
 import Axios from 'axios'
 
 
-const Mint = ({provider, nft, loginData, token, web3Handler, login, openLogin, account}) => {
+const Mint = ({ nft, loginData, token, web3Handler, login, openLogin, account}) => {
 
   const[busy, setBusy] = useState(false)
   const[refCode, setRefCode] = useState('')
@@ -40,8 +40,10 @@ const Mint = ({provider, nft, loginData, token, web3Handler, login, openLogin, a
       } else {    
     
      if (allowance < price){
+      console.log(balance)
+      console.log(allowance)
       window.alert("Please approve USDC first.")
-    }else if (balance < price) {
+    }else if (balance < price * 1000000) {
       window.alert("Insufficient balance to mint. 250 USDC is required.")
     }else{
     setBusy(true)   
@@ -116,10 +118,7 @@ const whArgs = {
 
 const whArgsSerialized = JSON.stringify(whArgs);
 
-console.log("obj", whArgs)
-console.log("str", whArgsSerialized)
 
-  
  
   
   const approveToken = async() => {

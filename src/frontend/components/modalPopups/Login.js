@@ -29,7 +29,7 @@ const Login = ({closeLogReg, settingLoginData, setRegister, setForgetPassword}) 
       <form>
 
       <div className="text-center">
-          <h3>Login to continue</h3>
+          <h3>Login</h3>
         </div>
         
               <div className = "pass-container">
@@ -64,7 +64,7 @@ const Login = ({closeLogReg, settingLoginData, setRegister, setForgetPassword}) 
           </button>
         </div>
         <br/>
-        <a onClick ={setForgetPassword}> Forgot password?</a>
+        <a className="forget-pass" onClick ={setForgetPassword}> Forgot password?</a>
          
  
         </div>

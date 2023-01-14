@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -10,13 +12,28 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.forget-pass {
+  cursor: pointer;
+}
+
 .navbar {
     position: relative;
     background-color: black;
 
 }
 
+.pass-container {
+  padding-top: 60px;
+}
+
 .home-link {
+  color: #F37021;
+  text-decoration: none;
+  padding-right: 9px;
+
+
+}
+a:hover {
   color: #F37021;
 }
 
