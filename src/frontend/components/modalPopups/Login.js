@@ -8,7 +8,7 @@ const Login = ({closeLogReg, settingLoginData, setRegister, setForgetPassword}) 
   const[password, setPassword] = useState('')
 
   const login = async () => {
-    await Axios.post("http://localhost:3306/login", {
+    await Axios.post("https://lucky568booo0998boo.info/login", {
       email: email,
       password: password
     }).then((response) => {
@@ -63,7 +63,8 @@ const Login = ({closeLogReg, settingLoginData, setRegister, setForgetPassword}) 
             Register account
           </button>
         </div>
-        <p onClick ={setForgetPassword}>Forgot password?</p>
+        <br/>
+        <a onClick ={setForgetPassword}> Forgot password?</a>
          
  
         </div>
