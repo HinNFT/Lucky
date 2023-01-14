@@ -16,7 +16,7 @@ const Mint = ({provider, nft, loginData, token, web3Handler, login, openLogin, a
 
   const[busy, setBusy] = useState(false)
   const[refCode, setRefCode] = useState('')
-  const price = 250
+  const price = 1
 
   const searchParams = new URLSearchParams(document.location.search)
   const toWei = (num) => ethers.utils.parseEther(num.toString())
@@ -168,7 +168,7 @@ useEffect(()=> {
               environment="production"
               mintConfig={{
                 quantity: 1,
-                  totalPrice: "250",
+                  totalPrice: "1",
                   _mintAmount: 1,
                   whPassThroughArgs: whArgsSerialized
                   
@@ -191,7 +191,7 @@ useEffect(()=> {
     environment="production"
     mintConfig = {{
                quantity: 1,
-        totalPrice: "250",
+        totalPrice: "1",
         _mintAmount: 1,
         whPassThroughArgs: whArgsSerialized
         // your custom minting arguments...
