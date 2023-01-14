@@ -173,7 +173,7 @@ useEffect(()=> {
               environment="production"              
               mintConfig={{
                 quantity: 1,
-                  totalPrice: "1",
+                  totalPrice: "250",
                   _mintAmount: 1,                 
                   // your custom minting arguments...
               }}
@@ -195,7 +195,7 @@ useEffect(()=> {
     environment="production"
     mintConfig={{
          quantity: 1,
-        totalPrice: "1",
+        totalPrice: "250",
         _mintAmount: 1,
         // your custom minting arguments...
     }}
