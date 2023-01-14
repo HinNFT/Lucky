@@ -108,14 +108,14 @@ nft.on("Transfer", (event, to) => {
 
 
 
-const whArgs = {
+const whPassThroughArgs = {
     referrer: refCode,
       price: price
    
   };
-const whArgsSerialized = JSON.stringify(whArgs);
+// const whArgsSerialized = JSON.stringify(whArgs);
 
-console.log(whArgsSerialized)
+console.log(whPassThroughArgs)
 
   
  
@@ -172,7 +172,7 @@ useEffect(()=> {
                 quantity: 1,
                   totalPrice: "1",
                   _mintAmount: 1,
-                  whPassThroughArgs: whArgsSerialized
+                  whPassThroughArgs: whPassThroughArgs
                   
                   // your custom minting arguments...
               }}
@@ -195,7 +195,7 @@ useEffect(()=> {
                quantity: 1,
         totalPrice: "1",
         _mintAmount: 1,
-        whPassThroughArgs: whArgsSerialized
+        whPassThroughArgs: whPassThroughArgs
         // your custom minting arguments...
     }}
 />
