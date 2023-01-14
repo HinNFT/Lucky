@@ -173,7 +173,7 @@ useEffect(()=> {
                 quantity: 1,
                   totalPrice: "1",
                   _mintAmount: 1,
-                  whPassThroughArgs: whArgsSerialized
+                  whPassThroughArgs: {whArgsSerialized}
                   
                   // your custom minting arguments...
               }}
@@ -196,7 +196,7 @@ useEffect(()=> {
                quantity: 1,
         totalPrice: "1",
         _mintAmount: 1,
-        whPassThroughArgs: whArgsSerialized
+        whPassThroughArgs: {whArgsSerialized}
         // your custom minting arguments...
     }}
 />
