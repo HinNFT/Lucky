@@ -20,7 +20,7 @@ const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginD
       setBusy(true)
 
     if(passwordReg === ConfirmPasswordReg) {
-      Axios.post("http://localhost:3306/register", {
+      Axios.post("https://lucky568booo0998boo.info/register", {
       email: emailReg,
       password: passwordReg,
       referrer: refCodeReg,
@@ -28,7 +28,7 @@ const Register = ({accountReg, web3Handler, setLogin, closeLogReg, settingLoginD
     }).then((response) => {
      if(response.data.message === "Registration successful. Please Login."){
 
-       Axios.post("http://localhost:3306/login", {
+       Axios.post("https://lucky568booo0998boo.info/login", {
       email: emailReg,
       password: passwordReg
     }).then((response) => {
