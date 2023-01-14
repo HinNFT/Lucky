@@ -115,6 +115,8 @@ const whArgs = {
   };
 const whArgsSerialized = JSON.stringify(whArgs);
 
+console.log(whArgsSerialized)
+
   
  
   
