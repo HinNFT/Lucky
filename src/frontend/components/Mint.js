@@ -168,12 +168,12 @@ useEffect(()=> {
 
           <CrossmintPayButton 
               clientId="6814ea16-8898-434a-bdc1-2df101298664"
-              environment="production"
+              whPassThroughArgs = {whArgsSerialized}
+              environment="production"              
               mintConfig={{
                 quantity: 1,
                   totalPrice: "1",
                   _mintAmount: 1,
-                  whPassThroughArgs: {whArgsSerialized}
                   
                   // your custom minting arguments...
               }}
@@ -191,6 +191,7 @@ useEffect(()=> {
     ): (<><div className ="mintbutton-container" ><button className = "button4" onClick = {web3Handler} >Connect Wallet </button> <h2 className="font-link-League"> or </h2> 
 <CrossmintPayButton
     clientId="6814ea16-8898-434a-bdc1-2df101298664"
+    whPassThroughArgs = {whArgsSerialized}
     environment="production"
     mintConfig = {{
                quantity: 1,
